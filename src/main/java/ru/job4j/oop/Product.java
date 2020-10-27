@@ -1,23 +1,27 @@
 package ru.job4j.oop;
 
-public final class Product {
-    private final String name;
-    private final int price;
+public class Product {
+    private String name;
+    private int count;
 
-    public Product(String name, int price) {
+    public Product(String name, int count) {
         this.name = name;
-        this.price = price;
+        this.count = count;
     }
 
-    public int price() {
-        return price - discount();
+    public String getName() {
+        return name;
     }
 
-    public int discount() {
-        return 0;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String label() {
-        return name + " " + price();
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }
