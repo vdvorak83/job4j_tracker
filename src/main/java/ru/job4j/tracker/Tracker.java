@@ -52,11 +52,20 @@ public class Tracker {
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
         item.setId(id);
-        items[index] = item;
-        if (index == -1) {
-            return false;
-        } else {
-            return true;
+        if (index != -1) {
+            items[index] = item;
         }
+            return false;
     }
+
+    public boolean delete(int id) {
+        int index = indexOf(id);
+        if (index != -1) {
+            System.arraycopy(items, index + 1, items, index, size - index);
+            items[size - 1] = null;
+            size--;
+        }
+            return false;
+    }
+
 }
