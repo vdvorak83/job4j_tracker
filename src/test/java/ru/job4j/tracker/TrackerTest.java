@@ -6,12 +6,11 @@ import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsNull.nullValue;
 
 public class TrackerTest {
-    private String name;
 
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item(name);
+        Item item = new Item("New name");
         item.setName("test1");
         tracker.add(item);
         Item result = tracker.findById(item.getId());
@@ -21,11 +20,11 @@ public class TrackerTest {
     @Test
     public void whenReplace() {
         Tracker tracker = new Tracker();
-        Item bug = new Item(name);
+        Item bug = new Item("New name");
         bug.setName("Bug");
         tracker.add(bug);
         int id = bug.getId();
-        Item bugWithDesc = new Item(name);
+        Item bugWithDesc = new Item("New name");
         bugWithDesc.setName("Bug with description");
         tracker.replace(id, bugWithDesc);
         assertThat(tracker.findById(id).getName(), is("Bug with description"));
@@ -34,7 +33,7 @@ public class TrackerTest {
     @Test
     public void whenDelete() {
         Tracker tracker = new Tracker();
-        Item bug = new Item(name);
+        Item bug = new Item("New name");
         bug.setName("Bug");
         tracker.add(bug);
         int id = bug.getId();
