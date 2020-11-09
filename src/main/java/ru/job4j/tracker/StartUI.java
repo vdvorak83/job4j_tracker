@@ -28,9 +28,11 @@ public class StartUI {
                 System.out.print("Enter new name: ");
                 String name = scanner.nextLine();
                 Item item = new Item(name);
-                tracker.replace(id, item);
-                if (item.getId() == id) {
-                    tracker.replace(id, item);
+                boolean rls = tracker.replace(id, item);
+                if (rls) {
+                    System.out.println("Заявка с id " + id + " изменена" + item);
+                } else {
+                    System.out.println("Заявка с таким id не найдена");
                 }
             } else if (select == 3) {
                 System.out.println("=== Delete item ====");
@@ -39,7 +41,7 @@ public class StartUI {
                 System.out.println(id);
                 boolean rls = tracker.delete(id);
                 if (rls) {
-                    System.out.println(id);
+                    System.out.println("Заявка с id " + id + " удалена");
                 } else {
                     System.out.println("Заявка с таким id не найдена");
                 }
@@ -59,7 +61,7 @@ public class StartUI {
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 Item[] item = tracker.findByName(name);
-                if (item != null && item.length > 0) {
+                if (item.length > 0) {
                     for (Item value : item) {
                         System.out.println(value);
                     }
