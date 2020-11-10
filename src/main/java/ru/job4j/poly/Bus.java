@@ -1,4 +1,4 @@
-package ru.job4j.ru.job4j.poly;
+package ru.job4j.poly;
 
 public class Bus implements Transport {
     @Override
