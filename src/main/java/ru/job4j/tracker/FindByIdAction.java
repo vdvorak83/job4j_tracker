@@ -16,12 +16,12 @@ public class FindByIdAction implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         out.println("=== Find item by Id ====");
         int id = Integer.parseInt(input.askStr("Enter id: "));
-        System.out.println(id);
+        out.println(id);
         Item rls = tracker.findById(id);
         if (rls != null) {
-            System.out.println("Name " + rls.getName() + "id" + rls.getId());
+            out.println("Name " + rls.getName() + "id" + rls.getId());
         } else {
-            System.out.println("Заявка с таким id не найдена");
+            out.println("Заявка с таким id не найдена");
         }
         return true;
     }

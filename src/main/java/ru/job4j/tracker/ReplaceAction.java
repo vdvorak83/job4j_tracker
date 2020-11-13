@@ -20,9 +20,9 @@ public class ReplaceAction implements UserAction {
         Item item = new Item(name);
         boolean rls = tracker.replace(id, item);
         if (rls) {
-            System.out.println("Заявка с id " + id + " изменена");
+            out.println("Заявка с id " + id + " изменена");
         } else {
-            System.out.println("Заявка с таким id не найдена");
+            out.println("Заявка с таким id не найдена");
         }
         return true;
     }
