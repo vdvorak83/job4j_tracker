@@ -2,9 +2,9 @@ package ru.job4j.ex;
 
 public class Fact {
     public static void main(String[] args) {
-    }
+        System.out.println("N of 5 to Factorial is : " + calc(5));}
 
-    public int calc(int n) {
+    public static int calc(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("N less then 0.");
         }
