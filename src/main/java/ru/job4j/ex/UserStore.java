@@ -6,11 +6,9 @@ public class UserStore {
         for (User user : users) {
             if (user.getUsername().equals(login)) {
                 return user;
-            } else {
-                throw new UserNotFoundException("This user not found");
             }
         }
-        return null;
+        throw new UserNotFoundException("This user not found");
     }
 
     public static boolean validate(User user) throws UserInvalidException {
@@ -26,7 +24,7 @@ public class UserStore {
         };
         try {
             User user = findUser(users, "Petr Arsentev");
-            if (user != null && validate(user)) {
+            if (validate(user)) {
                 System.out.println("This user has an access");
             }
         } catch (UserInvalidException e) {
