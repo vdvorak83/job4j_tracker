@@ -11,7 +11,30 @@ public class ValidateInputTest {
     public void whenInvalidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"one", "1"}
+                new String[]{"one", "1"}
+        );
+        ValidateInput input = new ValidateInput(out, in);
+        input.askInt("Enter menu:");
+        assertThat(out.toString(), is("Please enter validate data again."
+                + System.lineSeparator()));
+    }
+
+    @Test
+    public void whenInvalidInput1() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[]{"one", "1"}
+        );
+        ValidateInput input = new ValidateInput(out, in);
+        int selected = input.askInt("Enter menu:");
+        assertThat(selected, is(1));
+    }
+
+    @Test
+    public void whenInvalidMinusInput() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[]{"-1", "1"}
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
@@ -22,7 +45,7 @@ public class ValidateInputTest {
     public void whenValidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0"}
+                new String[]{"0"}
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
@@ -33,7 +56,7 @@ public class ValidateInputTest {
     public void whenMultipleValidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"2", "3", "6"}
+                new String[]{"2", "3", "6"}
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
@@ -46,14 +69,4 @@ public class ValidateInputTest {
         assertThat(selected2, is(6));
     }
 
-    @Test
-    public void whenInvalidMinusInput() {
-        Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[] {"-1"}
-        );
-        ValidateInput input = new ValidateInput(out, in);
-        int selected = input.askInt("Enter menu:");
-        assertThat(selected, is(-1));
-    }
 }
