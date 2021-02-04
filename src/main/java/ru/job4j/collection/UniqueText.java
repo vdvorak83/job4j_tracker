@@ -12,13 +12,10 @@ public class UniqueText {
           check.add(o);
       }
       for (String t : text) {
-          t.contains(originText);
-
+          if (!check.contains(t)) {
+              return false;
+          }
       }
-
-
-    /* for-each origin -> new HashSet. */
-    /* for-each text -> hashSet.contains */
     return rsl;
 }
 }
