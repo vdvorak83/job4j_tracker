@@ -11,9 +11,9 @@ public class ItemSorter {
                 new Item("Petr"),
                 new Item("Kirill")
         );
-        Collections.sort(items, new SortByNameItem());
+        items.sort(new SortByNameItem());
         System.out.println(items);
-        Collections.sort(items, new SortByNameItemReverse());
+        items.sort(new SortByNameItemReverse());
         System.out.println(items);
     }
 }
