@@ -7,4 +7,16 @@ public class Doctor extends Profession {
     public Diagnosis heal(Pacient pacient) {
          return heal;
     }
+
+    public void setHeal(Diagnosis heal) {
+        this.heal = heal;
+    }
+
+    public Pacient getPacient() {
+        return pacient;
+    }
+
+    public void setPacient(Pacient pacient) {
+        this.pacient = pacient;
+    }
 }
