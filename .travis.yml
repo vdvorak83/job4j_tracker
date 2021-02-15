@@ -18,3 +18,7 @@ notifications:
       - sanya.spb_vohta@mail.ru
     on_success: never # default: change
     on_failure: always # default: always
+
+env:
+  global:
+    - CODECOV_TOKEN="9cbdf078-ab1c-4ca7-bfde-36460de04cf6"
