@@ -1,10 +1,8 @@
 package ru.job4j.collection;
 
 import org.junit.Test;
-import java.util.Arrays;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+
+import java.util.*;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -26,9 +24,10 @@ public class DepartmentsTest {
         assertThat(result, is(expect));
     }
 
-  /*  @Test
+   @Test
     public void whenSortAsc() {
-        List<String> input = Arrays.asList("K2",
+
+       List<String> input = Arrays.asList("K2",
                 "K2/SK1",
                 "K2/SK1/SSK1",
                 "K2/SK1/SSK2",
@@ -46,10 +45,12 @@ public class DepartmentsTest {
                 "K2/SK1",
                 "K2/SK1/SSK1",
                 "K2/SK1/SSK2");
-        List<String> result = Departments.sortAsc();
-        assertThat(result, is(expect));
-    }*/
-/*    @Test
+       List<String> result = Departments.fillGaps(input);
+       Departments.sortAsc(result);
+       assertThat(result, is(expect));
+    }
+
+  @Test
     public void whenSortDesc() {
         List<String> input = Arrays.asList("K1",
                 "K1/SK1",
@@ -69,7 +70,8 @@ public class DepartmentsTest {
                 "K1/SK1/SSK1",
                 "K1/SK1/SSK2",
                 "K1/SK2");
-        List<String> result = Departments.sortDesc();
+        List<String> result = Departments.fillGaps(input);
+        Departments.sortDesc(result);
         assertThat(result, is(expect));
-    }*/
+    }
 }
