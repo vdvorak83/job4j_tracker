@@ -28,5 +28,7 @@ public class AttachmentSort {
                 return left.getName().compareTo(right.getName());
             }
         };
+        attachments.sort(comparator1);
+        System.out.println(attachments);
     }
 }
