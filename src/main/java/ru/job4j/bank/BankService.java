@@ -81,21 +81,17 @@ public class BankService {
      * @param destPassport паспорт пользователя который получает денежные средства
      * @param destRequisite реквизиты на которые перечисляются денежные средства
      * @param amount итоговая сумма на счете после получения перевода.
-     * @return если счёт не найден или не хватает денег на счёте srcAccount (с которого переводят),
-     * то метод должен вернуть false
      */
 
-    public boolean transferMoney(String srcPassport, String srcRequisite,
-                                 String destPassport, String destRequisite, double amount) {
-        boolean rsl = false;
+    public void transferMoney(String srcPassport, String srcRequisite,
+                              String destPassport, String destRequisite, double amount) {
         Account accountSrc = findByRequisite(srcPassport, srcRequisite);
         Account accountDest = findByRequisite(destPassport, destRequisite);
         if (accountSrc != null && accountDest != null) {
-            if (accountSrc.getBalance() > accountDest.getBalance()) {
-                amount = accountSrc.getBalance() + accountDest.getBalance();
-                accountDest.setBalance(amount);
+            if (accountSrc.getBalance() >= amount) {
+                accountSrc.setBalance(accountSrc.getBalance() - amount);
+                accountDest.setBalance(accountDest.getBalance() + amount);
             }
         }
-        return rsl;
     }
 }
