@@ -8,11 +8,11 @@ public class Departments {
         Set<String> tmp = new LinkedHashSet<>();
         for (String value : deps) {
             String start = "";
-            for (String el : value.split("/")) {
+            for (String end : value.split("/")) {
                 if (start.equals("")) {
-                    start = el;
+                    start = end;
                 } else {
-                    start += "/" + el;
+                    start += "/" + end;
                 }
                 tmp.add(start);
             }

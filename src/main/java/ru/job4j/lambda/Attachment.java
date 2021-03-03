@@ -1,16 +1,16 @@
 package ru.job4j.lambda;
 
 public class Attachment {
-    private final String name;
+    private final String names;
     private final int size;
 
     public Attachment(String name, int size) {
-        this.name = name;
+        this.names = name;
         this.size = size;
     }
 
     public String getName() {
-        return name;
+        return names;
     }
 
     public int getSize() {
@@ -20,7 +20,7 @@ public class Attachment {
     @Override
     public String toString() {
         return "{"
-                + "name='" + name + '\''
+                + "name='" + names + '\''
                 + ", size=" + size
                 + '}';
     }

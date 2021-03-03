@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
 public class DepartmentsTest {
     @Test
     public void whenMissed() {
-        List<String> input = Arrays.asList("k1/sk1");
+        List<String> input = Collections.singletonList("k1/sk1");
         List<String> expect = Arrays.asList("k1", "k1/sk1");
         List<String> result = Departments.fillGaps(input);
         assertThat(result, is(expect));
